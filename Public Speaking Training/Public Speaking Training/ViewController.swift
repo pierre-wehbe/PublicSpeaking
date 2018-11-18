@@ -15,8 +15,10 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+
     }
-    
+
     private func setUpView() {
         pdfView = PDFView(frame: view.frame)
         pdfView.center = view.center

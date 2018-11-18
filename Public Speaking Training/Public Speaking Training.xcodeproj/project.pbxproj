@@ -16,6 +16,7 @@
 		8FB704BC21A1BAB80004F58C /* Public_Speaking_TrainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB704BB21A1BAB80004F58C /* Public_Speaking_TrainingTests.swift */; };
 		8FB704C721A1BAB80004F58C /* Public_Speaking_TrainingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB704C621A1BAB80004F58C /* Public_Speaking_TrainingUITests.swift */; };
 		8FB704D521A1BC370004F58C /* test.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8FB704D421A1BC370004F58C /* test.pdf */; };
+		8FB704DB21A1D0EA0004F58C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB704DA21A1D0EA0004F58C /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +52,7 @@
 		8FB704C621A1BAB80004F58C /* Public_Speaking_TrainingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Public_Speaking_TrainingUITests.swift; sourceTree = "<group>"; };
 		8FB704C821A1BAB80004F58C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FB704D421A1BC370004F58C /* test.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = test.pdf; sourceTree = "<group>"; };
-		8FB704D921A1CD6D0004F58C /* Keys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Keys.xcconfig; sourceTree = "<group>"; };
+		8FB704DA21A1D0EA0004F58C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +83,7 @@
 		8FB7049721A1BAB40004F58C = {
 			isa = PBXGroup;
 			children = (
-				8FB704D921A1CD6D0004F58C /* Keys.xcconfig */,
+				8FB704DA21A1D0EA0004F58C /* Keys.swift */,
 				8FB704D421A1BC370004F58C /* test.pdf */,
 				8FB704A221A1BAB40004F58C /* Public Speaking Training */,
 				8FB704BA21A1BAB80004F58C /* Public Speaking TrainingTests */,
@@ -266,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FB704AC21A1BAB40004F58C /* Public_Speaking_Training.xcdatamodeld in Sources */,
+				8FB704DB21A1D0EA0004F58C /* Keys.swift in Sources */,
 				8FB704A621A1BAB40004F58C /* ViewController.swift in Sources */,
 				8FB704A421A1BAB40004F58C /* AppDelegate.swift in Sources */,
 			);
