@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Public Speaking Training' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+	pod 'googleapis'
+  # Pods for Public Speaking Training
+
+  target 'Public Speaking TrainingTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Public Speaking TrainingUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
