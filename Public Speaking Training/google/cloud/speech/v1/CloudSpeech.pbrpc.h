@@ -1,5 +1,5 @@
 #if !defined(GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO) || !GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO
-#import "google/cloud/speech/v1/CloudSpeech.pbobjc.h"
+#import <googleapis/CloudSpeech.pbobjc.h>
 #endif
 
 #if !defined(GPB_GRPC_PROTOCOL_ONLY) || !GPB_GRPC_PROTOCOL_ONLY
@@ -17,8 +17,8 @@
 @class StreamingRecognizeResponse;
 
 #if !defined(GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO) || !GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO
-  #import "google/api/Annotations.pbobjc.h"
-  #import "google/longrunning/Operations.pbobjc.h"
+  #import <googleapis/Annotations.pbobjc.h>
+  #import <googleapis/Operations.pbobjc.h>
 #if defined(GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS) && GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS
   #import <Protobuf/Any.pbobjc.h>
 #else
@@ -34,7 +34,7 @@
 #else
   #import "google/protobuf/Timestamp.pbobjc.h"
 #endif
-  #import "google/rpc/Status.pbobjc.h"
+  #import <googleapis/Status.pbobjc.h>
 #endif
 
 @class GRPCProtoCall;
