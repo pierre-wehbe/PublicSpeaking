@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B73AF786B972089E5891EBE /* Pods_Public_Speaking_TrainingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD9CB1B4D06B4D07AE5157 /* Pods_Public_Speaking_TrainingUITests.framework */; };
 		8FB704A421A1BAB40004F58C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB704A321A1BAB40004F58C /* AppDelegate.swift */; };
 		8FB704A621A1BAB40004F58C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB704A521A1BAB40004F58C /* ViewController.swift */; };
 		8FB704A921A1BAB40004F58C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FB704A721A1BAB40004F58C /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 		8FB704C721A1BAB80004F58C /* Public_Speaking_TrainingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB704C621A1BAB80004F58C /* Public_Speaking_TrainingUITests.swift */; };
 		8FB704D521A1BC370004F58C /* test.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8FB704D421A1BC370004F58C /* test.pdf */; };
 		8FB704DB21A1D0EA0004F58C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB704DA21A1D0EA0004F58C /* Keys.swift */; };
+		B28F64EE3FDF696084324AF7 /* Pods_Public_Speaking_Training.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EABA4484479C56D72A87218 /* Pods_Public_Speaking_Training.framework */; };
+		CD0D1C2EE1850D3B93765BFC /* Pods_Public_Speaking_TrainingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBA602196AF107165A04DB3 /* Pods_Public_Speaking_TrainingTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0EABA4484479C56D72A87218 /* Pods_Public_Speaking_Training.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Public_Speaking_Training.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42DC0A061BE6BC801C2A5D30 /* Pods-Public Speaking Training.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Public Speaking Training.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Public Speaking Training/Pods-Public Speaking Training.debug.xcconfig"; sourceTree = "<group>"; };
+		55B932DCDE48FFEC55408807 /* Pods-Public Speaking TrainingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Public Speaking TrainingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Public Speaking TrainingUITests/Pods-Public Speaking TrainingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7A7916C5BCF7BCAC1E01863A /* Pods-Public Speaking TrainingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Public Speaking TrainingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Public Speaking TrainingUITests/Pods-Public Speaking TrainingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7E8CAF446405C0B12BFFB27C /* Pods-Public Speaking TrainingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Public Speaking TrainingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Public Speaking TrainingTests/Pods-Public Speaking TrainingTests.release.xcconfig"; sourceTree = "<group>"; };
 		8FB704A021A1BAB40004F58C /* Public Speaking Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Public Speaking Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB704A321A1BAB40004F58C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FB704A521A1BAB40004F58C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +61,10 @@
 		8FB704C821A1BAB80004F58C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FB704D421A1BC370004F58C /* test.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = test.pdf; sourceTree = "<group>"; };
 		8FB704DA21A1D0EA0004F58C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		921540C72E2E221888D7AF96 /* Pods-Public Speaking TrainingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Public Speaking TrainingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Public Speaking TrainingTests/Pods-Public Speaking TrainingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AFBA602196AF107165A04DB3 /* Pods_Public_Speaking_TrainingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Public_Speaking_TrainingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2CAF73D0BFF4D01B6C39319 /* Pods-Public Speaking Training.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Public Speaking Training.release.xcconfig"; path = "Pods/Target Support Files/Pods-Public Speaking Training/Pods-Public Speaking Training.release.xcconfig"; sourceTree = "<group>"; };
+		E7CD9CB1B4D06B4D07AE5157 /* Pods_Public_Speaking_TrainingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Public_Speaking_TrainingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28F64EE3FDF696084324AF7 /* Pods_Public_Speaking_Training.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD0D1C2EE1850D3B93765BFC /* Pods_Public_Speaking_TrainingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B73AF786B972089E5891EBE /* Pods_Public_Speaking_TrainingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +104,8 @@
 				8FB704BA21A1BAB80004F58C /* Public Speaking TrainingTests */,
 				8FB704C521A1BAB80004F58C /* Public Speaking TrainingUITests */,
 				8FB704A121A1BAB40004F58C /* Products */,
+				FC75B547D14C7462B406C83B /* Pods */,
+				F901238E8866992EAF3669A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +151,29 @@
 			path = "Public Speaking TrainingUITests";
 			sourceTree = "<group>";
 		};
+		F901238E8866992EAF3669A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EABA4484479C56D72A87218 /* Pods_Public_Speaking_Training.framework */,
+				AFBA602196AF107165A04DB3 /* Pods_Public_Speaking_TrainingTests.framework */,
+				E7CD9CB1B4D06B4D07AE5157 /* Pods_Public_Speaking_TrainingUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC75B547D14C7462B406C83B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42DC0A061BE6BC801C2A5D30 /* Pods-Public Speaking Training.debug.xcconfig */,
+				E2CAF73D0BFF4D01B6C39319 /* Pods-Public Speaking Training.release.xcconfig */,
+				921540C72E2E221888D7AF96 /* Pods-Public Speaking TrainingTests.debug.xcconfig */,
+				7E8CAF446405C0B12BFFB27C /* Pods-Public Speaking TrainingTests.release.xcconfig */,
+				7A7916C5BCF7BCAC1E01863A /* Pods-Public Speaking TrainingUITests.debug.xcconfig */,
+				55B932DCDE48FFEC55408807 /* Pods-Public Speaking TrainingUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FB704CB21A1BAB80004F58C /* Build configuration list for PBXNativeTarget "Public Speaking Training" */;
 			buildPhases = (
+				D94EA5F17F6215D543C1632E /* [CP] Check Pods Manifest.lock */,
 				8FB7049C21A1BAB40004F58C /* Sources */,
 				8FB7049D21A1BAB40004F58C /* Frameworks */,
 				8FB7049E21A1BAB40004F58C /* Resources */,
+				240C4FBA47F2BE157D93606A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,6 +200,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FB704CE21A1BAB80004F58C /* Build configuration list for PBXNativeTarget "Public Speaking TrainingTests" */;
 			buildPhases = (
+				F3F2E544F260399B037E1BFF /* [CP] Check Pods Manifest.lock */,
 				8FB704B321A1BAB80004F58C /* Sources */,
 				8FB704B421A1BAB80004F58C /* Frameworks */,
 				8FB704B521A1BAB80004F58C /* Resources */,
@@ -176,6 +219,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FB704D121A1BAB80004F58C /* Build configuration list for PBXNativeTarget "Public Speaking TrainingUITests" */;
 			buildPhases = (
+				CA4249F6264F723FC923B56C /* [CP] Check Pods Manifest.lock */,
 				8FB704BE21A1BAB80004F58C /* Sources */,
 				8FB704BF21A1BAB80004F58C /* Frameworks */,
 				8FB704C021A1BAB80004F58C /* Resources */,
@@ -260,6 +304,95 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		240C4FBA47F2BE157D93606A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Public Speaking Training/Pods-Public Speaking Training-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/googleapis/googleapis.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/googleapis.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Public Speaking Training/Pods-Public Speaking Training-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA4249F6264F723FC923B56C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Public Speaking TrainingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D94EA5F17F6215D543C1632E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Public Speaking Training-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3F2E544F260399B037E1BFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Public Speaking TrainingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8FB7049C21A1BAB40004F58C /* Sources */ = {
@@ -442,6 +575,7 @@
 		};
 		8FB704CC21A1BAB80004F58C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42DC0A061BE6BC801C2A5D30 /* Pods-Public Speaking Training.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -460,6 +594,7 @@
 		};
 		8FB704CD21A1BAB80004F58C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2CAF73D0BFF4D01B6C39319 /* Pods-Public Speaking Training.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -478,6 +613,7 @@
 		};
 		8FB704CF21A1BAB80004F58C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 921540C72E2E221888D7AF96 /* Pods-Public Speaking TrainingTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -499,6 +635,7 @@
 		};
 		8FB704D021A1BAB80004F58C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E8CAF446405C0B12BFFB27C /* Pods-Public Speaking TrainingTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,6 +657,7 @@
 		};
 		8FB704D221A1BAB80004F58C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A7916C5BCF7BCAC1E01863A /* Pods-Public Speaking TrainingUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -540,6 +678,7 @@
 		};
 		8FB704D321A1BAB80004F58C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55B932DCDE48FFEC55408807 /* Pods-Public Speaking TrainingUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
