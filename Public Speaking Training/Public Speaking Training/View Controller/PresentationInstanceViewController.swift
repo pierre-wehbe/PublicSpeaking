@@ -71,11 +71,13 @@ class PresentationInstanceViewController: UIViewController {
                 if pdfView.canGoToNextPage() {
                     pdfView.goToNextPage(sender)
                     currentInstance.goToNextPage()
+                    refreshTimers()
                 }
             } else {
                 if pdfView.canGoBack() {
                     pdfView.goToPreviousPage(sender)
                     currentInstance.goToPreviousPage()
+                    refreshTimers()
                 }
             }
         }
@@ -89,7 +91,10 @@ class PresentationInstanceViewController: UIViewController {
     }
     
     @IBAction func restartTapped(_ sender: Any) {
-        
+        currentPageTimerLabel.text = "00:00"
+        totalTimeElapsed.text = "00:00"
+        pdfView.goToFirstPage(self)
+        currentInstance.restart()
     }
     
     

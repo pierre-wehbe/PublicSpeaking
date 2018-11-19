@@ -64,6 +64,14 @@ class PresentationInstance {
         }
     }
     
+    public func restart() {
+        stopAll()
+        //TODO: Need to delete files that were saved here
+        _audioRecorders.removeAll()
+        _currentPage = 0
+        startRecording()
+    }
+    
     public func getTotalElapsedTime() -> TimeInterval {
         var totalTimeElapsed: TimeInterval = 0
         for recoder in _audioRecorders {

@@ -177,8 +177,7 @@
 			children = (
 				8FF1875F21A1E3EF00DDD75F /* PresentationFile.swift */,
 				8FF1876221A1E46900DDD75F /* PresentationInstance.swift */,
-				8FF1877021A234A400DDD75F /* PresentationTableViewCell.swift */,
-				8FF1877421A2769600DDD75F /* InstanceTableViewCell.swift */,
+				8FF1877821A293A400DDD75F /* Table View Cells */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +199,15 @@
 				8FB704A521A1BAB40004F58C /* PresentationInstanceViewController.swift */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		8FF1877821A293A400DDD75F /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8FF1877021A234A400DDD75F /* PresentationTableViewCell.swift */,
+				8FF1877421A2769600DDD75F /* InstanceTableViewCell.swift */,
+			);
+			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
 		F901238E8866992EAF3669A4 /* Frameworks */ = {
