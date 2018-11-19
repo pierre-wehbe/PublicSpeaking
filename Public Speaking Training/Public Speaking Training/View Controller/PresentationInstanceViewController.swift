@@ -13,6 +13,7 @@ class PresentationInstanceViewController: UIViewController {
     
     @IBOutlet weak var pdfControllerView: UIView!
     
+    var timer = Timer()
     @IBOutlet weak var currentPageTimerLabel: UILabel!
     @IBOutlet weak var totalTimeElapsed: UILabel!
 
@@ -27,10 +28,16 @@ class PresentationInstanceViewController: UIViewController {
         AudioController.sharedInstance.delegate = self
         addTap()
         setUpView()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(refreshTimers), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+
+    @objc func refreshTimers() {
+        totalTimeElapsed.text = "\(stringFromTimeInterval(interval: currentInstance.getTotalElapsedTime()))"
+        currentPageTimerLabel.text = "\(stringFromTimeInterval(interval: currentInstance.getCurrenPageElapsedTime()))"
     }
     
     private func setUpView() {

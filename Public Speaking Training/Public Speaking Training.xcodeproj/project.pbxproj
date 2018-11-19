@@ -26,6 +26,7 @@
 		8FF1877121A234A400DDD75F /* PresentationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF1877021A234A400DDD75F /* PresentationTableViewCell.swift */; };
 		8FF1877321A26A2E00DDD75F /* PresentationFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF1877221A26A2E00DDD75F /* PresentationFileViewController.swift */; };
 		8FF1877521A2769600DDD75F /* InstanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF1877421A2769600DDD75F /* InstanceTableViewCell.swift */; };
+		8FF1877721A2923900DDD75F /* UtilFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF1877621A2923900DDD75F /* UtilFunctions.swift */; };
 		B28F64EE3FDF696084324AF7 /* Pods_Public_Speaking_Training.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EABA4484479C56D72A87218 /* Pods_Public_Speaking_Training.framework */; };
 		CD0D1C2EE1850D3B93765BFC /* Pods_Public_Speaking_TrainingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBA602196AF107165A04DB3 /* Pods_Public_Speaking_TrainingTests.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		8FF1877021A234A400DDD75F /* PresentationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationTableViewCell.swift; sourceTree = "<group>"; };
 		8FF1877221A26A2E00DDD75F /* PresentationFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationFileViewController.swift; sourceTree = "<group>"; };
 		8FF1877421A2769600DDD75F /* InstanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceTableViewCell.swift; sourceTree = "<group>"; };
+		8FF1877621A2923900DDD75F /* UtilFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilFunctions.swift; sourceTree = "<group>"; };
 		921540C72E2E221888D7AF96 /* Pods-Public Speaking TrainingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Public Speaking TrainingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Public Speaking TrainingTests/Pods-Public Speaking TrainingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AFBA602196AF107165A04DB3 /* Pods_Public_Speaking_TrainingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Public_Speaking_TrainingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CAF73D0BFF4D01B6C39319 /* Pods-Public Speaking Training.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Public Speaking Training.release.xcconfig"; path = "Pods/Target Support Files/Pods-Public Speaking Training/Pods-Public Speaking Training.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				8FB704AD21A1BAB70004F58C /* Assets.xcassets */,
 				8FB704B221A1BAB80004F58C /* Info.plist */,
 				8FB704AA21A1BAB40004F58C /* Public_Speaking_Training.xcdatamodeld */,
+				8FF1877621A2923900DDD75F /* UtilFunctions.swift */,
 			);
 			path = "Public Speaking Training";
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FF1877721A2923900DDD75F /* UtilFunctions.swift in Sources */,
 				8FF1876521A20D8400DDD75F /* AudioController.swift in Sources */,
 				8FF1877121A234A400DDD75F /* PresentationTableViewCell.swift in Sources */,
 				8FB704AC21A1BAB40004F58C /* Public_Speaking_Training.xcdatamodeld in Sources */,

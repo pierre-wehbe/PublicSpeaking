@@ -63,6 +63,18 @@ class PresentationInstance {
             recorder.stop()
         }
     }
+    
+    public func getTotalElapsedTime() -> TimeInterval {
+        var totalTimeElapsed: TimeInterval = 0
+        for recoder in _audioRecorders {
+            totalTimeElapsed += recoder.currentTime
+        }
+        return totalTimeElapsed
+    }
+    
+    public func getCurrenPageElapsedTime() -> TimeInterval {
+        return _audioRecorders[_currentPage].currentTime
+    }
 
     //TODO: Add flags on resumed
     public func goToNextPage() {
