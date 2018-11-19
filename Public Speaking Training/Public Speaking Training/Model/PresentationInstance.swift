@@ -5,6 +5,7 @@ import PDFKit
 class PresentationInstance {
     
     // Attributes
+    private var _path: String = ""
     private var _currentPage: Int = 0
     private var _parent: PresentationFile!
     private var _audioRecorders : [AVAudioRecorder] = []
@@ -23,6 +24,9 @@ class PresentationInstance {
     init(parent: PresentationFile) {
         self._parent = parent
         self._pdfDocument = PDFDocument(url: parent.pdfUrl)
+        
+        self._path = FilesManager.shared.createInstanceFolder(localPath: _parent.path)
+        print("Created New instance folder at path: \(_path)")
     }
 
     // Getters
@@ -50,7 +54,7 @@ class PresentationInstance {
     // Helper Function
     public func startRecording() {
         do {
-            _audioRecorders.append(try AVAudioRecorder(url: localFileurl.appendingPathComponent("test-p\(_currentPage).m4a"), settings: settings))
+            _audioRecorders.append(try AVAudioRecorder(url: localFileurl.appendingPathComponent("\(_path)/\(_currentPage).m4a"), settings: settings))
             _audioRecorders[_currentPage].delegate = _delegate
             _audioRecorders[_currentPage].record()
         } catch {
@@ -66,7 +70,8 @@ class PresentationInstance {
     
     public func restart() {
         stopAll()
-        //TODO: Need to delete files that were saved here
+        FilesManager.shared.deleteFileAt(localPath: _path)
+        self._path = FilesManager.shared.createInstanceFolder(localPath: _parent.path)
         _audioRecorders.removeAll()
         _currentPage = 0
         startRecording()
@@ -116,5 +121,4 @@ class PresentationInstance {
         print("Resuming Record at page \(_currentPage)")
         _audioRecorders[_currentPage].record()
     }
-    
 }

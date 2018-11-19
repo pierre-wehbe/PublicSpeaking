@@ -4,6 +4,7 @@ import PDFKit
 class PresentationFile {
     
     // Attributes
+    private var _path: String = "Presentations/"
     private var _fileName: String = ""
     private var _instances: [PresentationInstance] = []
     private var _pdfUrl: URL!
@@ -12,10 +13,12 @@ class PresentationFile {
     
     init() {
         let path = Bundle.main.path(forResource: "test", ofType: "pdf") //TODO: temp, get from viewer
-        self._pdfUrl = URL(fileURLWithPath: path!)
+        self._pdfUrl = URL(fileURLWithPath: path!) //TODO: Need to move file into directory when downloaded later
+        
+        _path = "\(_path)\(FilesManager.shared.createPresentationFolder())"
+        print("Created New File folder at path: \(_path)")
     }
-    
-    
+
     // Getters
     var pdfUrl: URL {
         get {
@@ -32,6 +35,15 @@ class PresentationFile {
     var instances: [PresentationInstance] {
         get {
             return _instances
+        }
+    }
+    
+    var path: String {
+        get {
+            return _path
+        }
+        set {
+            _path = newValue
         }
     }
     

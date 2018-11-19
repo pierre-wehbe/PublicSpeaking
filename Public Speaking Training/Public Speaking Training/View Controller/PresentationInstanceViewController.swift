@@ -4,24 +4,22 @@ import UIKit
 import googleapis
 
 class PresentationInstanceViewController: UIViewController {
-    
+
     private let SAMPLE_RATE = 16000
-    
+
     public var fileLocalPath: String!
     public var data: Data? = nil
     public var pdfView: PDFView!
+    public var currentInstance: PresentationInstance!
+
+    private var audioData: NSMutableData!
+    private var timer = Timer()
     
-    @IBOutlet weak var pdfControllerView: UIView!
-    
-    var timer = Timer()
     @IBOutlet weak var currentPageTimerLabel: UILabel!
     @IBOutlet weak var totalTimeElapsed: UILabel!
 
-    public var currentInstance: PresentationInstance!
-    
-    var audioData: NSMutableData!
-    
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var pdfControllerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
