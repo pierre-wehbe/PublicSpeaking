@@ -5,6 +5,7 @@ class PresentationFileViewController: UIViewController {
     
     var presentationFile: PresentationFile!
     var pdfView: PDFView!
+    var selectedInstance: Int = -1
     
     @IBOutlet weak var pdfPreviewView: UIView!
     @IBOutlet weak var instancesTableView: UITableView!
@@ -88,9 +89,16 @@ extension PresentationFileViewController: UITableViewDataSource, UITableViewDele
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedInstance = indexPath.item
+        performSegue(withIdentifier: "toDetailedSummary", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toInstanceCreator" {
             (segue.destination as! PresentationInstanceViewController).currentInstance = presentationFile.createInstance()
+        } else if segue.identifier == "toDetailedSummary" {
+            (segue.destination as! DetailedSummaryViewController).currentInstance = presentationFile.instances[selectedInstance]
         }
     }
 }

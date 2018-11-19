@@ -6,7 +6,7 @@ target 'Public Speaking Training' do
   use_frameworks!
   # Pods for Public Speaking Training
   pod 'googleapis', :path => '.'
-
+  pod 'UICircularProgressRing'
   target 'Public Speaking TrainingTests' do
     inherit! :search_paths
     # Pods for testing

@@ -76,7 +76,7 @@ class PresentationInstance {
         _currentPage = 0
         startRecording()
     }
-    
+
     public func getTotalElapsedTime() -> TimeInterval {
         var totalTimeElapsed: TimeInterval = 0
         for recoder in _audioRecorders {
@@ -87,6 +87,10 @@ class PresentationInstance {
     
     public func getCurrenPageElapsedTime() -> TimeInterval {
         return _audioRecorders[_currentPage].currentTime
+    }
+    
+    public func save() {
+        _parent.saveCurrentInstance()
     }
 
     //TODO: Add flags on resumed

@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 func stringFromTimeInterval(interval: TimeInterval) -> NSString {
     
@@ -13,4 +14,8 @@ func stringFromTimeInterval(interval: TimeInterval) -> NSString {
 //    return NSString(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
     return NSString(format: "%0.2d:%0.2d",minutes,seconds)
 
+}
+
+func getSecondaryColor() -> UIColor {
+    return UIColor(red: 235 / 255, green: 204 / 255, blue: 123 / 255, alpha: 1.0)
 }
