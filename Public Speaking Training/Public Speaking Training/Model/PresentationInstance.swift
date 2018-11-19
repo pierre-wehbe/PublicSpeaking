@@ -12,7 +12,6 @@ class PresentationInstance {
     private var _pdfDocument: PDFDocument!
     private var _delegate: AVAudioRecorderDelegate!
     
-    
     private let settings = [
         AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
         AVSampleRateKey: 12000,
@@ -64,7 +63,8 @@ class PresentationInstance {
             recorder.stop()
         }
     }
-    
+
+    //TODO: Add flags on resumed
     public func goToNextPage() {
         print("\nNext Page")
         print("Paused page \(_currentPage)")

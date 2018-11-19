@@ -3,7 +3,7 @@ import PDFKit
 import UIKit
 import googleapis
 
-class ViewController: UIViewController {
+class PresentationInstanceViewController: UIViewController {
     
     private let SAMPLE_RATE = 16000
     
@@ -11,6 +11,11 @@ class ViewController: UIViewController {
     public var data: Data? = nil
     public var pdfView: PDFView!
     
+    @IBOutlet weak var pdfControllerView: UIView!
+    
+    @IBOutlet weak var currentPageTimerLabel: UILabel!
+    @IBOutlet weak var totalTimeElapsed: UILabel!
+
     public var currentInstance: PresentationInstance!
     
     var audioData: NSMutableData!
@@ -29,16 +34,13 @@ class ViewController: UIViewController {
     }
     
     private func setUpView() {
-        pdfView = PDFView(frame: view.frame)
-        pdfView.center = view.center
-        let file = PresentationFile()
-        currentInstance = file.createInstance()
+        pdfView = PDFView(frame: pdfControllerView.frame)
+        pdfView.center = pdfControllerView.center
         pdfView.document = currentInstance.pdfDocument
         pdfView.displayDirection = .horizontal
         pdfView.displayMode = .singlePage
         pdfView.autoScales = true
         view.addSubview(pdfView)
-        view.bringSubviewToFront(doneButton)
         currentInstance.delegate = self
         startRecording()
     }
@@ -49,7 +51,15 @@ class ViewController: UIViewController {
     }
     
     @objc private func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        if let xTouchPos = sender?.location(in: view).x {
+        if let yTouchPos = sender?.location(in: pdfControllerView).y {
+            if yTouchPos < pdfControllerView.frame.minY
+                || yTouchPos > pdfControllerView.frame.maxY {
+                return
+            }
+        } else {
+            return
+        }
+        if let xTouchPos = sender?.location(in: pdfControllerView).x {
             if xTouchPos > view.center.x {
                 if pdfView.canGoToNextPage() {
                     pdfView.goToNextPage(sender)
@@ -62,7 +72,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
     }
     
     //MARK: Button Actions
@@ -71,9 +80,21 @@ class ViewController: UIViewController {
         SpeechRecognitionService.sharedInstance.stopStreaming()
         currentInstance.stopAll()
     }
+    
+    @IBAction func restartTapped(_ sender: Any) {
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "backToInstanceViewer" {
+            (segue.destination as! PresentationFileViewController).presentationFile.saveCurrentInstance()
+            (segue.destination as! PresentationFileViewController).instancesTableView.reloadData()
+        }
+    }
 }
 
-extension ViewController: AVAudioRecorderDelegate {
+extension PresentationInstanceViewController: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         let path = recorder.url
         print(path)
@@ -94,7 +115,7 @@ extension ViewController: AVAudioRecorderDelegate {
     }
 }
 
-extension ViewController: AudioControllerDelegate {
+extension PresentationInstanceViewController: AudioControllerDelegate {
     func processSampleData(_ data: Data) -> Void {
         audioData.append(data)
         
@@ -118,7 +139,12 @@ extension ViewController: AudioControllerDelegate {
                         for result in response.resultsArray! {
                             if let result = result as? StreamingRecognitionResult {
                                 if result.isFinal {
-                                    print(response)
+//                                    print(response)
+                                    guard let alternative = result.alternativesArray.firstObject as? SpeechRecognitionAlternative else {return}
+                                    print("\n")
+//                                    print(alternative)
+                                    print(alternative.transcript)
+                                    print("\n")
                                     finished = true
                                 }
                             }

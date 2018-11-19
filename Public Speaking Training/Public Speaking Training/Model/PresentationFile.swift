@@ -29,6 +29,12 @@ class PresentationFile {
         }
     }
     
+    var instances: [PresentationInstance] {
+        get {
+            return _instances
+        }
+    }
+    
     // Helper Functions
     public func createInstance() -> PresentationInstance {
         if _newInstance != nil {
@@ -60,5 +66,9 @@ class PresentationFile {
         } else {
             print("No current instances to be saved")
         }
+    }
+    
+    public func hasInstances() -> Bool {
+        return !_instances.isEmpty
     }
 }
