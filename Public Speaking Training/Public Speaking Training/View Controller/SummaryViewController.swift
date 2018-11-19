@@ -28,5 +28,8 @@ class SummaryViewController: UIViewController {
             (segue.destination as! PresentationFileViewController).instancesTableView.reloadData()
         }
     }
+    
+    @IBAction func unwindToSummary(segue:UIStoryboardSegue) {
+    }
 
 }

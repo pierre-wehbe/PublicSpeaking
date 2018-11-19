@@ -86,6 +86,7 @@ class PresentationInstanceViewController: UIViewController {
         _ = AudioController.sharedInstance.stop()
         SpeechRecognitionService.sharedInstance.stopStreaming()
         currentInstance.stopAll()
+        print(currentInstance.generateTranscript())
     }
     
     @IBAction func restartTapped(_ sender: Any) {
@@ -154,6 +155,7 @@ extension PresentationInstanceViewController: AudioControllerDelegate {
                                     print("\n")
 //                                    print(alternative)
                                     print(alternative.transcript)
+                                    strongSelf.currentInstance.addTranscipt(sentence: alternative.transcript, atPage: strongSelf.currentInstance.currentPage)
                                     print("\n")
                                     finished = true
                                 }

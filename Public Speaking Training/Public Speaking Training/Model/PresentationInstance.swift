@@ -9,7 +9,7 @@ class PresentationInstance {
     private var _currentPage: Int = 0
     private var _parent: PresentationFile!
     private var _audioRecorders : [AVAudioRecorder] = []
-    
+    private var _transcripts: [Int : [String]] = [:]
     private var _pdfDocument: PDFDocument!
     private var _delegate: AVAudioRecorderDelegate!
     
@@ -30,6 +30,12 @@ class PresentationInstance {
     }
 
     // Getters
+    var currentPage: Int {
+        get {
+            return _currentPage
+        }
+    }
+
     var pdfDocument: PDFDocument {
         get {
             return _pdfDocument
@@ -57,6 +63,7 @@ class PresentationInstance {
             _audioRecorders.append(try AVAudioRecorder(url: localFileurl.appendingPathComponent("\(_path)/\(_currentPage).m4a"), settings: settings))
             _audioRecorders[_currentPage].delegate = _delegate
             _audioRecorders[_currentPage].record()
+            _transcripts[currentPage] = []
         } catch {
             print("Couldn't append recorder")
         }
@@ -73,6 +80,7 @@ class PresentationInstance {
         FilesManager.shared.deleteFileAt(localPath: _path)
         self._path = FilesManager.shared.createInstanceFolder(localPath: _parent.path)
         _audioRecorders.removeAll()
+        _transcripts.removeAll()
         _currentPage = 0
         startRecording()
     }
@@ -89,8 +97,26 @@ class PresentationInstance {
         return _audioRecorders[_currentPage].currentTime
     }
     
-    public func save() {
-        _parent.saveCurrentInstance()
+    public func addTranscipt(sentence: String, atPage: Int) {
+        _transcripts[atPage]?.append(sentence)
+    }
+    
+    public func generateTranscript() -> String {
+        if _transcripts.isEmpty {
+            print("Empty Transcript")
+            return ""
+        }
+        var fullTransctipt: String = "Full Transcipt\n"
+        for key in _transcripts.keys {
+            fullTransctipt += "\nPage \(key):\n"
+            if _transcripts[key]!.isEmpty {
+                fullTransctipt += "Nothing has been said on this page. "
+            }
+            for sentence in _transcripts[key]! {
+                fullTransctipt += "\(sentence). "
+            }
+        }
+        return fullTransctipt
     }
 
     //TODO: Add flags on resumed
@@ -99,6 +125,7 @@ class PresentationInstance {
         print("Paused page \(_currentPage)")
         _audioRecorders[_currentPage].pause()
         _currentPage += 1
+        _transcripts[currentPage] = []
         if _currentPage < _audioRecorders.count {
             print("Resuming Record at page \(_currentPage)")
         } else {
