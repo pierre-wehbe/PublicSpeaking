@@ -12,8 +12,7 @@ class PresentationInstance {
     private var _transcripts: [Int : [String]] = [:]
     private var _pdfDocument: PDFDocument!
     private var _delegate: AVAudioRecorderDelegate!
-    
-    private var _currentPageAudioPlayer: AVPlayer!
+    private var _instanceName: String = ""
     
     private let settings = [
         AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -40,6 +39,12 @@ class PresentationInstance {
             _currentPage = newValue
         }
     }
+    
+    var instanceName: String {
+        get {
+            return _instanceName
+        }
+    }
 
     var pdfDocument: PDFDocument {
         get {
@@ -63,6 +68,9 @@ class PresentationInstance {
     }
 
     // Helper Function
+    public func setInstanceName() {
+        _instanceName = Date.getDate(date: Date(), format: .YYYYMMDD_HHMMSS).0
+    }
     public func startRecording() {
         do {
             _audioRecorders.append(try AVAudioRecorder(url: localFileurl.appendingPathComponent("\(_path)/\(_currentPage).m4a"), settings: settings))
@@ -108,15 +116,10 @@ class PresentationInstance {
     public func addTranscipt(sentence: String, atPage: Int) {
         _transcripts[atPage]?.append(sentence)
     }
-    
-    public func playAudioFile(forPage: Int = -1) {
-        _currentPageAudioPlayer = try? AVPlayer(url: getRecordUrl(forPage: forPage == -1 ? _currentPage : forPage))
-        _currentPageAudioPlayer.play()
-    }
 
-    private func getRecordUrl(forPage: Int) -> URL {
-        print(FilesManager.localFileURL.appendingPathComponent("\(_path)/\(forPage).m4a"))
-        return FilesManager.localFileURL.appendingPathComponent("\(_path)/\(forPage).m4a")
+    public func getRecordUrl() -> URL {
+        print(FilesManager.localFileURL.appendingPathComponent("\(_path)/\(_currentPage).m4a"))
+        return FilesManager.localFileURL.appendingPathComponent("\(_path)/\(_currentPage).m4a")
     }
     
     public func getTranscript(forPage: Int = -1) -> String {

@@ -10,7 +10,7 @@ class PresentationFileViewController: UIViewController {
     @IBOutlet weak var pdfPreviewView: UIView!
     @IBOutlet weak var instancesTableView: UITableView!
     @IBOutlet weak var noInstancesAvailableLabel: UILabel!
-    let CELL_ID = "PresentationInstanceCell"
+    let CELL_ID = "InstanceCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,8 +87,9 @@ extension PresentationFileViewController: UITableViewDataSource, UITableViewDele
     
     //TODO: Modify - bind with file info
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! PresentationTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! InstanceTableViewCell
         if indexPath.item < presentationFile.instances.count {
+            cell.instanceName.text = presentationFile.instances[indexPath.item].instanceName
         }
         return cell
     }

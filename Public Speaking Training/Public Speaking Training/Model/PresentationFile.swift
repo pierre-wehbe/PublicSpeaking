@@ -71,6 +71,7 @@ class PresentationFile {
     
     public func saveCurrentInstance() {
         if _newInstance != nil {
+            _newInstance?.setInstanceName()
             _instances.append(_newInstance!)
             //TODO: Save it somewhere
             print("Saved successfully")
