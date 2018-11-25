@@ -4,6 +4,7 @@ import UICircularProgressRing
 class SummaryViewController: UIViewController {
 
     @IBOutlet weak var performanceBar: UICircularProgressRing!
+    var currentInstance: PresentationInstance!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +27,12 @@ class SummaryViewController: UIViewController {
         if segue.identifier == "backToInstanceViewer" {
             (segue.destination as! PresentationFileViewController).presentationFile.saveCurrentInstance()
             (segue.destination as! PresentationFileViewController).instancesTableView.reloadData()
+        } else if segue.identifier == "toTranscriptView" {
+            (segue.destination as! TranscriptViewController).currentInstance = currentInstance
+            (segue.destination as! TranscriptViewController).fromDetailedSummary = false
         }
     }
-    
+
     @IBAction func unwindToSummary(segue:UIStoryboardSegue) {
     }
 

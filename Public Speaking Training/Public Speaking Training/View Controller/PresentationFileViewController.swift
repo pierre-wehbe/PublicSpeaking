@@ -23,6 +23,9 @@ class PresentationFileViewController: UIViewController {
         super.viewWillAppear(animated)
         addTap()
         noInstancesAvailableLabel.isHidden = presentationFile.hasInstances()
+        if pdfView != nil {
+            pdfView.removeFromSuperview()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,6 +49,7 @@ class PresentationFileViewController: UIViewController {
     
     private func addTap() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     
@@ -93,7 +97,7 @@ extension PresentationFileViewController: UITableViewDataSource, UITableViewDele
         selectedInstance = indexPath.item
         performSegue(withIdentifier: "toDetailedSummary", sender: self)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toInstanceCreator" {
             (segue.destination as! PresentationInstanceViewController).currentInstance = presentationFile.createInstance()

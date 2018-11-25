@@ -13,6 +13,8 @@ class PresentationInstance {
     private var _pdfDocument: PDFDocument!
     private var _delegate: AVAudioRecorderDelegate!
     
+    private var _currentPageAudioPlayer: AVPlayer!
+    
     private let settings = [
         AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
         AVSampleRateKey: 12000,
@@ -33,6 +35,9 @@ class PresentationInstance {
     var currentPage: Int {
         get {
             return _currentPage
+        }
+        set {
+            _currentPage = newValue
         }
     }
 
@@ -94,21 +99,49 @@ class PresentationInstance {
     }
     
     public func getCurrenPageElapsedTime() -> TimeInterval {
-        return _audioRecorders[_currentPage].currentTime
+        if _currentPage < _audioRecorders.count {
+            return _audioRecorders[_currentPage].currentTime
+        }
+        return 0.0
     }
     
     public func addTranscipt(sentence: String, atPage: Int) {
         _transcripts[atPage]?.append(sentence)
     }
     
+    public func playAudioFile(forPage: Int = -1) {
+        _currentPageAudioPlayer = try? AVPlayer(url: getRecordUrl(forPage: forPage == -1 ? _currentPage : forPage))
+        _currentPageAudioPlayer.play()
+    }
+
+    private func getRecordUrl(forPage: Int) -> URL {
+        print(FilesManager.localFileURL.appendingPathComponent("\(_path)/\(forPage).m4a"))
+        return FilesManager.localFileURL.appendingPathComponent("\(_path)/\(forPage).m4a")
+    }
+    
+    public func getTranscript(forPage: Int = -1) -> String {
+        guard let currentTranscript = _transcripts[forPage == -1 ? _currentPage : forPage] else {return "Nothing has been said on this page."}
+        var fullTransctipt = ""
+        if currentTranscript.isEmpty {
+            fullTransctipt += "Nothing has been said on this page. "
+        } else {
+            for sentence in currentTranscript {
+                fullTransctipt += "\(sentence). "
+            }
+        }
+        return fullTransctipt
+    }
+
     public func generateTranscript() -> String {
         if _transcripts.isEmpty {
             print("Empty Transcript")
             return ""
         }
-        var fullTransctipt: String = "Full Transcipt\n"
-        for key in _transcripts.keys {
-            fullTransctipt += "\nPage \(key):\n"
+        var fullTransctipt: String = "*******************\nFULL TRANSCRIPT\n*******************\n\n"
+        for key in _transcripts.keys.sorted(by: { (page1, page2) -> Bool in
+            return page1 < page2
+        }) {
+            fullTransctipt += "\n\nPage \(key):\n"
             if _transcripts[key]!.isEmpty {
                 fullTransctipt += "Nothing has been said on this page. "
             }
@@ -118,20 +151,29 @@ class PresentationInstance {
         }
         return fullTransctipt
     }
+    
+    public func incrementPage() {
+        _currentPage += 1
+    }
+    
+    public func decrementPage() {
+        _currentPage -= 1
+        _currentPage = _currentPage < 0 ? 0 : _currentPage
+    }
 
     //TODO: Add flags on resumed
     public func goToNextPage() {
         print("\nNext Page")
         print("Paused page \(_currentPage)")
         _audioRecorders[_currentPage].pause()
-        _currentPage += 1
+        incrementPage()
         _transcripts[currentPage] = []
         if _currentPage < _audioRecorders.count {
             print("Resuming Record at page \(_currentPage)")
         } else {
             print("First time reaching that slide, recorder instantiated")
             do {
-                _audioRecorders.append(try AVAudioRecorder(url: localFileurl.appendingPathComponent("test-p\(_currentPage).m4a"), settings: settings))
+                _audioRecorders.append(try AVAudioRecorder(url: localFileurl.appendingPathComponent("\(_path)/\(_currentPage).m4a"), settings: settings))
                 _audioRecorders[_currentPage].delegate = _delegate
             } catch {
                 print("Couldn't append recorder")
@@ -148,7 +190,7 @@ class PresentationInstance {
             print("ERROR: Page out of range")
             return
         }
-        _currentPage -= 1
+        decrementPage()
         print("Resuming Record at page \(_currentPage)")
         _audioRecorders[_currentPage].record()
     }

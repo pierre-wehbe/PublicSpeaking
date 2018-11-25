@@ -29,6 +29,13 @@ class PresentationInstanceViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(refreshTimers), userInfo: nil, repeats: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if pdfView != nil {
+            pdfView.removeFromSuperview()
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -52,6 +59,7 @@ class PresentationInstanceViewController: UIViewController {
     
     private func addTap() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     
@@ -95,12 +103,13 @@ class PresentationInstanceViewController: UIViewController {
         pdfView.goToFirstPage(self)
         currentInstance.restart()
     }
-    
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "backToInstanceViewer" {
             (segue.destination as! PresentationFileViewController).presentationFile.saveCurrentInstance()
             (segue.destination as! PresentationFileViewController).instancesTableView.reloadData()
+        } else if segue.identifier == "toSummary" {
+            (segue.destination as! SummaryViewController).currentInstance = currentInstance
         }
     }
 }
