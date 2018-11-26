@@ -87,7 +87,6 @@ class PresentationInstanceViewController: UIViewController {
         _ = AudioController.sharedInstance.stop()
         SpeechRecognitionService.sharedInstance.stopStreaming()
         currentInstance.stopAll()
-        print(currentInstance.generateTranscript())
     }
     
     @IBAction func restartTapped(_ sender: Any) {
@@ -110,7 +109,6 @@ class PresentationInstanceViewController: UIViewController {
 extension PresentationInstanceViewController: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         let path = recorder.url
-        print(path)
     }
     
     func startRecording() {
@@ -155,9 +153,9 @@ extension PresentationInstanceViewController: AudioControllerDelegate {
 //                                    print(response)
                                     guard let alternative = result.alternativesArray.firstObject as? SpeechRecognitionAlternative else {return}
                                     print("\n")
-//                                    print(alternative)
-                                    print(alternative.transcript)
-                                    strongSelf.currentInstance.addTranscipt(sentence: alternative.transcript, atPage: strongSelf.currentInstance.currentPage)
+                                    print(alternative)
+//                                    print(alternative.transcript)
+                                    strongSelf.currentInstance.addTranscipt(sentence: alternative.transcript, atPage: strongSelf.currentInstance.currentPage, words: alternative.wordsArray)
                                     print("\n")
                                     finished = true
                                 }

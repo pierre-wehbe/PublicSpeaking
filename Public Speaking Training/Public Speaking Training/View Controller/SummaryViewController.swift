@@ -16,6 +16,7 @@ class SummaryViewController: UIViewController {
         performanceBar.startProgress(to: 80, duration: 2.0) {
             print("Done animating!")
         }
+        print("Average Rate: \(currentInstance.getTotalAverageWordsPerMin())")
     }
     
     private func setUpPerformanceBar() {

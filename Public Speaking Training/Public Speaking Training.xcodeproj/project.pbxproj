@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B73AF786B972089E5891EBE /* Pods_Public_Speaking_TrainingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD9CB1B4D06B4D07AE5157 /* Pods_Public_Speaking_TrainingUITests.framework */; };
+		8F8392CF21AB5A3C007FFCEB /* PerformanceMetricsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8392CE21AB5A3C007FFCEB /* PerformanceMetricsManager.swift */; };
 		8FB704A421A1BAB40004F58C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB704A321A1BAB40004F58C /* AppDelegate.swift */; };
 		8FB704A621A1BAB40004F58C /* PresentationInstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB704A521A1BAB40004F58C /* PresentationInstanceViewController.swift */; };
 		8FB704A921A1BAB40004F58C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FB704A721A1BAB40004F58C /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		55B932DCDE48FFEC55408807 /* Pods-Public Speaking TrainingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Public Speaking TrainingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Public Speaking TrainingUITests/Pods-Public Speaking TrainingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7A7916C5BCF7BCAC1E01863A /* Pods-Public Speaking TrainingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Public Speaking TrainingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Public Speaking TrainingUITests/Pods-Public Speaking TrainingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E8CAF446405C0B12BFFB27C /* Pods-Public Speaking TrainingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Public Speaking TrainingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Public Speaking TrainingTests/Pods-Public Speaking TrainingTests.release.xcconfig"; sourceTree = "<group>"; };
+		8F8392CE21AB5A3C007FFCEB /* PerformanceMetricsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceMetricsManager.swift; sourceTree = "<group>"; };
 		8FB704A021A1BAB40004F58C /* Public Speaking Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Public Speaking Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB704A321A1BAB40004F58C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FB704A521A1BAB40004F58C /* PresentationInstanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationInstanceViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				8FF1877A21A296FF00DDD75F /* FilesManager.swift */,
+				8F8392CE21AB5A3C007FFCEB /* PerformanceMetricsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				8FF1876521A20D8400DDD75F /* AudioController.swift in Sources */,
 				8FF1877121A234A400DDD75F /* PresentationTableViewCell.swift in Sources */,
 				8FB704AC21A1BAB40004F58C /* Public_Speaking_Training.xcdatamodeld in Sources */,
+				8F8392CF21AB5A3C007FFCEB /* PerformanceMetricsManager.swift in Sources */,
 				8FF1876021A1E3EF00DDD75F /* PresentationFile.swift in Sources */,
 				8FF1876D21A233E400DDD75F /* PresentationsViewerViewController.swift in Sources */,
 				8FF1876821A20F0100DDD75F /* SpeechRecognitionService.swift in Sources */,

@@ -1,6 +1,33 @@
 import AVKit
 import Foundation
 import PDFKit
+import googleapis
+
+class Transcript {
+    var sentences: [Sentence] = []
+    
+    public func isEmpty() -> Bool {
+        return sentences.isEmpty
+    }
+    
+    public func getTotalNumberOfWords() -> Int {
+        var result = 0
+        for sentence in sentences {
+            result += sentence.words.count
+        }
+        return result
+    }
+}
+
+class Sentence {
+    var sentence: String = ""
+    var words: [WordInfo] = []
+    
+    init(sentence: String, words: [WordInfo]) {
+        self.sentence = sentence
+        self.words = words
+    }
+}
 
 class PresentationInstance {
     
@@ -9,7 +36,7 @@ class PresentationInstance {
     private var _currentPage: Int = 0
     private var _parent: PresentationFile!
     private var _audioRecorders : [AVAudioRecorder] = []
-    private var _transcripts: [Int : [String]] = [:]
+    private var _transcripts: [Int : Transcript] = [:]
     private var _pdfDocument: PDFDocument!
     private var _delegate: AVAudioRecorderDelegate!
     private var _instanceName: String = ""
@@ -76,7 +103,7 @@ class PresentationInstance {
             _audioRecorders.append(try AVAudioRecorder(url: localFileurl.appendingPathComponent("\(_path)/\(_currentPage).m4a"), settings: settings))
             _audioRecorders[_currentPage].delegate = _delegate
             _audioRecorders[_currentPage].record()
-            _transcripts[currentPage] = []
+            _transcripts[currentPage] = Transcript()
         } catch {
             print("Couldn't append recorder")
         }
@@ -113,23 +140,24 @@ class PresentationInstance {
         return 0.0
     }
     
-    public func addTranscipt(sentence: String, atPage: Int) {
-        _transcripts[atPage]?.append(sentence)
+    //TODO: Save in currect page given middle world time stapm
+    public func addTranscipt(sentence: String, atPage: Int, words: NSMutableArray) {
+        let sentenceObj = Sentence(sentence: sentence, words: words as! [WordInfo])
+        _transcripts[atPage]!.sentences.append(sentenceObj)
     }
 
-    public func getRecordUrl() -> URL {
-        print(FilesManager.localFileURL.appendingPathComponent("\(_path)/\(_currentPage).m4a"))
-        return FilesManager.localFileURL.appendingPathComponent("\(_path)/\(_currentPage).m4a")
+    public func getRecordUrl(forPage: Int = -1) -> URL {
+        return FilesManager.localFileURL.appendingPathComponent("\(_path)/\(forPage == -1 ? _currentPage : forPage).m4a")
     }
     
     public func getTranscript(forPage: Int = -1) -> String {
         guard let currentTranscript = _transcripts[forPage == -1 ? _currentPage : forPage] else {return "Nothing has been said on this page."}
         var fullTransctipt = ""
-        if currentTranscript.isEmpty {
-            fullTransctipt += "Nothing has been said on this page. "
+        if currentTranscript.isEmpty() {
+            fullTransctipt += "Nothing has been said on this page."
         } else {
-            for sentence in currentTranscript {
-                fullTransctipt += "\(sentence). "
+            for sentenceObj in currentTranscript.sentences {
+                fullTransctipt += "\(sentenceObj.sentence). "
             }
         }
         return fullTransctipt
@@ -145,12 +173,7 @@ class PresentationInstance {
             return page1 < page2
         }) {
             fullTransctipt += "\n\nPage \(key):\n"
-            if _transcripts[key]!.isEmpty {
-                fullTransctipt += "Nothing has been said on this page. "
-            }
-            for sentence in _transcripts[key]! {
-                fullTransctipt += "\(sentence). "
-            }
+            fullTransctipt += getTranscript(forPage: key)
         }
         return fullTransctipt
     }
@@ -166,15 +189,13 @@ class PresentationInstance {
 
     //TODO: Add flags on resumed
     public func goToNextPage() {
-        print("\nNext Page")
-        print("Paused page \(_currentPage)")
         _audioRecorders[_currentPage].pause()
         incrementPage()
-        _transcripts[currentPage] = []
         if _currentPage < _audioRecorders.count {
-            print("Resuming Record at page \(_currentPage)")
+            // resuming
         } else {
-            print("First time reaching that slide, recorder instantiated")
+//            print("First time reaching that slide, recorder instantiated")
+            _transcripts[currentPage] = Transcript()
             do {
                 _audioRecorders.append(try AVAudioRecorder(url: localFileurl.appendingPathComponent("\(_path)/\(_currentPage).m4a"), settings: settings))
                 _audioRecorders[_currentPage].delegate = _delegate
@@ -186,15 +207,44 @@ class PresentationInstance {
     }
     
     public func goToPreviousPage() {
-        print("\nPrevious Page")
-        print("Paused page \(_currentPage)")
+//        print("Paused page \(_currentPage)")
         _audioRecorders[_currentPage].pause()
         if _currentPage == 0 {
             print("ERROR: Page out of range")
             return
         }
         decrementPage()
-        print("Resuming Record at page \(_currentPage)")
+//        print("Resuming Record at page \(_currentPage)")
         _audioRecorders[_currentPage].record()
+    }
+    
+    //MARK: Stats
+    public func getWordsPerMin(forPage: Int = -1) -> Int {
+        do {
+            let audioPlayer = try AVAudioPlayer(contentsOf: getRecordUrl(forPage: forPage))
+            guard let transcipt = _transcripts[forPage == -1 ? _currentPage : forPage] else {return 0}
+            if transcipt.isEmpty() {
+                return 0
+            }
+            print("Page\(forPage == -1 ? _currentPage : forPage) rate: \(transcipt.getTotalNumberOfWords()*60/Int(audioPlayer.duration))")
+            return transcipt.getTotalNumberOfWords()*60/Int(audioPlayer.duration)
+        } catch {
+            print("Cannot Get Words Per Min for page \(forPage == -1 ? _currentPage : forPage)")
+            return 0
+        }
+        
+    }
+    
+    public func getTotalAverageWordsPerMin() -> Int { //Or get it by counting number of words in the full transcript
+        var average = 0
+        var totalAmountOfSeconds = 0
+        for key in _transcripts.keys {
+            let stat = getWordsPerMin(forPage: key)
+            if stat != 0 {
+                average += stat
+                totalAmountOfSeconds += 1
+            }
+        }
+        return average/totalAmountOfSeconds
     }
 }
